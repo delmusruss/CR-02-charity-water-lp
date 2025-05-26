@@ -1,19 +1,145 @@
-/* charity: water Brand Colors & Fonts
+  <style>
+    :root {
+      /* Brand palette */
+      --brand-yellow: #FBD912;
+      --brand-dark: #1A1A1A;
+      --bg-light: #FAF6E9;
+      --font-sans: 'Inter', sans-serif;
+    }
 
-Primary Colors:
-- Yellow:     #FFC907
-- Blue:       #2E9DF7
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-sans);
+    }
 
-Secondary Colors:
-- Light Blue: #8BD1CB
-- Green:      #4FCB53
-- Orange:     #FF902A
-- Red:        #F5402C
-- Dark Green: #159A48
-- Pink:       #F16061
+    body {
+      background-color: var(--bg-light);
+      line-height: 1.6;
+    }
 
-Fonts:
-- Proxima Nova
-- Avenir
+    /* --------------------
+       Header
+    -------------------- */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #fff;
+    }
 
-*/
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    header a {
+      text-decoration: none;
+      color: var(--brand-dark);
+      font-weight: 600;
+    }
+
+    /* --------------------
+       Hero Section
+    -------------------- */
+    .hero {
+      display: flex;
+      flex-wrap: wrap; /* Keeps things neat on small screens */
+    }
+
+    /* --- Left: Image --- */
+    .hero-image {
+      flex: 1 1 50%;
+      min-height: 400px;
+      background: url('placeholder-image.jpg') center/cover no-repeat;
+    }
+
+    /* --- Right: Content --- */
+    .hero-content {
+      flex: 1 1 50%;
+      display: flex;
+      align-items: center;
+      padding: 2rem;
+      background-color: var(--brand-dark);
+      color: #fff;
+    }
+
+    .hero-content-wrapper {
+      max-width: 500px;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      margin-bottom: 2rem;
+      font-size: 1.125rem;
+    }
+
+    /* --- CTA Button --- */
+    .cta-button {
+      background-color: var(--brand-yellow);
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.125rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25);
+      transition: transform 0.1s ease;
+      color: var(--brand-dark);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    .cta-button:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    /* --------------------
+       Responsiveness
+    -------------------- */
+    @media (max-width: 768px) {
+      .hero-content,
+      .hero-image {
+        flex: 1 1 100%;
+      }
+
+      /* Show the image first on mobile for visual impact */
+      .hero-image {
+        order: 2;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">Charity: Water</div>
+    <a href="#">Sign In</a>
+  </header>
+
+  <!-- Hero / Landing Section -->
+  <section class="hero">
+    <!-- Placeholder image (replace with your own) -->
+    <div class="hero-image" role="img" aria-label="Smiling child collecting clean water"></div>
+
+    <!-- Messaging + CTA -->
+    <div class="hero-content">
+      <div class="hero-content-wrapper">
+        <h1>Turn Your Passion for<br>Change Into Clean Water for All</h1>
+        <p>Be part of something bigger. Support clean water solutions that empower communities and create a lasting impact.</p>
+        <button class="cta-button">Get Involved Today</button>
+      </div>
+    </div>
+  </section>
+</body>
