@@ -1,11 +1,43 @@
+<!--
+  Charity: Water Landing Page
+  Simple, beginner-friendly HTML with comments.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Charity: Water</title>
-
   <!-- Google Font for clean typography -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  </html>
+  <!-- Link to the external CSS file -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header section with logo and sign in link -->
+  <header>
+    <div class="logo">
+      <!-- Logo image for Charity: Water -->
+      <img src="cw_logo-2.png" alt="Charity: Water" class="logo-icon" style="height: 32px; margin-right: 8px;">
+      Charity: Water
+    </div>
+    <a href="#">Sign In</a>
+  </header>
+
+  <!-- Main hero section with image and content side by side -->
+  <section class="hero">
+    <!-- Left side: image -->
+    <div class="hero-image" role="img" aria-label="Child collecting clean water"></div>
+    <!-- Right side: content box -->
+    <div class="hero-content">
+      <h1>Turn Your Passion for<br>Change Into Clean Water for All</h1>
+      <p>
+        Be part of something bigger.<br>
+        Support clean water solutions that empower communities and create a lasting impact.
+      </p>
+      <button class="cta-button">Get Involved<br>Today</button>
+    </div>
+  </section>
+</body>
+</html>
