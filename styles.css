@@ -3,144 +3,159 @@
   Simple, beginner-friendly CSS with comments.
 */
 
-/* Set up colors and font for the page */
+/* Set up the font and remove default margins */
 body {
-  background-color: #FAF6E9; /* Light background */
   font-family: 'Inter', Arial, sans-serif;
   margin: 0;
   padding: 0;
+  /* Remove background color so the image shows fully */
 }
 
 /* Header styles */
 header {
   background-color: #fff;
   color: #1A1A1A;
-  padding: 12px 0;
+  padding: 16px 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 3px solid #FAF6E9;
+  border-bottom: 2px solid #FAF6E9;
+  position: relative;
+  z-index: 2; /* Keep header above hero */
 }
 
+/* Logo styles */
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
   display: flex;
   align-items: center;
-  margin-left: 24px;
 }
 
 .logo-icon {
-  font-size: 1.3rem;
-  color: #FBD912;
+  height: 32px;
   margin-right: 8px;
 }
 
+/* Sign in link styles */
 header a {
   text-decoration: none;
   color: #1A1A1A;
   font-weight: 600;
   font-size: 1.2rem;
-  margin-right: 32px;
 }
 
-/* Hero section: side-by-side layout using flex */
+/* Hero section styles - image fills the page, text overlays on right */
 .hero {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  margin: 0 auto;
-  max-width: 1100px;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
   min-height: 500px;
-  background-color: #FAF6E9;
-  padding: 32px 0;
-}
-
-/* Left: image */
-.hero-image {
-  flex: 1;
-  min-width: 0;
-  min-height: 400px;
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=700&q=80');
-  background-size: cover;
-  background-position: center;
-  border-radius: 0 0 0 0;
-  margin-left: 24px;
-  margin-right: 12px;
-}
-
-/* Right: content */
-.hero-content {
-  flex: 1;
-  background-color: #222;
-  color: #fff;
-  border-radius: 32px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 40px 32px;
-  margin-right: 24px;
-  margin-left: 12px;
-  max-width: 450px;
-  min-width: 320px;
-  box-sizing: border-box;
+  align-items: stretch;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+/* Full-page background image */
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('img/Madagascar_2019_CG-2679.jpg') center/cover no-repeat;
+  z-index: 1;
+}
+
+/* Content overlays on the right side */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  margin-left: auto;
+  margin-right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100vh;
+  width: 100%;
+  max-width: 600px;
+  background: rgba(34, 34, 34, 0.92); /* Slightly transparent dark background */
+  color: #fff;
+  border-radius: 0 0 0 32px;
+  padding: 0 40px;
+}
+
+.hero-content-wrapper {
+  width: 100%;
+  max-width: 400px;
+  /* Center the content horizontally */
+  margin-left: auto;
+  margin-right: auto;
+  text-align: Left;
 }
 
 .hero-content h1 {
   font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 24px;
+  margin-bottom: 1rem;
   line-height: 1.2;
+  font-weight: 700;
 }
 
 .hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 32px;
+  margin-bottom: 2rem;
+  font-size: 1.125rem;
   line-height: 1.4;
 }
 
-/* CTA Button */
+/* CTA Button styles */
 .cta-button {
   background-color: #FBD912;
-  color: #1A1A1A;
   border: none;
-  padding: 18px 32px;
-  font-size: 1.3rem;
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  border-radius: 16px;
+  border-radius: 12px;
   cursor: pointer;
   box-shadow: 4px 8px 0 #bba900;
-  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
-  margin: 0 auto;
-  display: block;
+  color: #1A1A1A;
+  transition: transform 0.1s, box-shadow 0.1s;
 }
 
 .cta-button:hover {
-  background-color: #ffe95c;
-  box-shadow: 6px 12px 0 #bba900;
   transform: translateY(-2px);
+  box-shadow: 6px 12px 0 #bba900;
 }
 
-/* Responsive: stack on small screens */
+.cta-button:active {
+  transform: translateY(0);
+  box-shadow: 2px 4px 0 #bba900;
+}
+
+/* Responsive: stack content below image on small screens */
 @media (max-width: 900px) {
   .hero {
     flex-direction: column;
-    align-items: center;
-    padding: 16px 0;
-  }
-  .hero-image,
-  .hero-content {
-    margin: 0;
-    max-width: 100%;
-    min-width: 0;
+    height: auto;
+    min-height: 0;
   }
   .hero-image {
-    min-height: 220px;
-    border-radius: 0;
+    position: relative;
+    height: 250px;
+    min-height: 180px;
   }
   .hero-content {
-    border-radius: 24px;
-    margin-top: 16px;
-    padding: 24px 12px;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 0;
+    padding: 24px 10px;
+    justify-content: center;
+    background: rgba(34, 34, 34, 0.97);
+  }
+  .hero-content-wrapper {
+    margin: 0 auto;
+    text-align: center;
   }
 }
